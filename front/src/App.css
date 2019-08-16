@@ -67,13 +67,13 @@
     font-family: sans-serif;
   }
   
-  ul.menu li {
+  /* ul.menu li {
     display: inline;
     list-style-type: none;
     margin: 0;
   }
   ul.menu {
-    background-color: rgb(75, 46, 9);
+    background-color: rgb(75, 46, 9) !important;
     padding: 0;
     opacity: 0.8;
   }
@@ -85,7 +85,10 @@
     padding: 25px;
     display: inline-block;
   }
-  
+   */
+   #navbar{
+    background-color: rgb(75, 46, 9) !important;
+   }
   .content h2 {
     padding: 0;
     margin: 0;

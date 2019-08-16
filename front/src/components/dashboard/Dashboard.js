@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Atelier from './../atelier/atelier';
 import Getatelier from './../atelier/getatelier';
-import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+import { Link } from "react-router-dom";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
@@ -41,45 +41,31 @@ class Dashboard extends Component {
 
     return (
       <div className="container-fluid">
-          <Router>
             <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="zetina" className="fixed-top">
               <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
+                <MDBNavbarBrand>
+                    <img className=""  src="img/logo.png"  alt = "logo" height="60px"/>
+                    <span id="good">GEC</span>
+                </MDBNavbarBrand>
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
                   <MDBNavbarNav left>
+                    <li class="nav-item active">
+                        <Link to="/"><span id="couleur" >Acceuil</span></Link> <span class="sr-only">(current)</span>
+                      </li>
+                      <li class="nav-item active">
+                        <Link to="/"><span id="couleur" >Actualiter</span></Link> <span class="sr-only">(current)</span>
+                      </li>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
-                      <MDBNavItem>
-                        <MDBNavLink to="/" className="nav-header" >Page d'accueil</MDBNavLink>
-                      </MDBNavItem>
-                      <MDBNavItem>
-                        <MDBNavLink to="" onClick={this.onLogoutClick} className="nav-header" >Deconnexion</MDBNavLink>
-                      </MDBNavItem>
+                      <li class="nav-item active">
+                        <Link to="" onClick={this.onLogoutClick} className="nav-header"><span id="couleur" >Deconnexion</span></Link> <span class="sr-only">(current)</span>
+                      </li>
                   </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>
-        </Router>
 
 
             <div className="wrapper">
-              <nav id="sidebar">
-              <center>
-                  <div className="sidebar-header">
-                    <img src="logo.png" alt="logo" id="imagedash"/>
-                    <h3 id="h3header">{user.name.split(" ")[0]}</h3>
-                        <button id="li1" className="btn btn-primary"  onClick={()=>{
-                          document.getElementById('ajoutercomponent').style.display = 'block'
-                          document.getElementById('listecomponent').style.display = 'none'
-
-                        }} href="#">Ajouter nouveau Actualiter</button><br/>
-                        <button id="li1"  className="btn btn-primary" onClick={()=>{
-                          document.getElementById('ajoutercomponent').style.display = 'none'
-                          this.get()
-                        }} href="#">listes de vos Actu</button>
-
-<button  className="btn-sm btn peach-gradient" id="li1"  onClick={this.onLogoutClick}  >Deconnexion</button>
-                  </div>
-                  </center>
-              </nav>
               
             </div>
 

@@ -8,24 +8,40 @@ import Resolve from './component/Resolve/Resolve'
 import Social from './component/Social/Social'
 import Footer from './component/Footer/Footer'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends Component {
   render() {
     return (
         <Router>
           <MDBContainer fluid>
-                <header>
+                <header >
                   <div className="slogo">
                    {/* <p className="logo">Gasy Ecocitizen</p> */}
                     <p className="slogan">Take care of our environment</p>                   
                     <img src="img/logo.png" width="120px"/>
                   </div>
-                  <nav>
-                    <ul className="menu">
-                      <li> <Link to="/Home" class="active">Home</Link></li>
-                      <li> <Link to="/Impact" class="active">Impact</Link></li>
-                      <li> <Link to="/Risk" class="active">Risk</Link></li>
-                      <li> <Link to="/Resolve" class="active">Finding resolve</Link></li>
-                    </ul>
+                    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light menu" scrolling>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button> 
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                          <Link to="/Home"><span id="couleur" >Home</span></Link> <span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item active">
+                          <Link to="/Impact"><span id="couleur" >Impact</span></Link> <span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item active">
+                          <Link to="/Risk"><span id="couleur" >Risk</span></Link> <span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item active">
+                          <Link to="/Resolve"><span id="couleur" >Resolve</span></Link> <span class="sr-only">(current)</span>
+                        </li>
+                      </ul>
+                    </div>
                   </nav>
                 </header>
                 <div className="reseau">
