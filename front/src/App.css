@@ -1,0 +1,103 @@
+#boutton-inscrire {
+    background-color: #f3671f !important;
+}
+#loginrow {
+    margin-top: 200px;
+    transition: transform .2s; 
+    border-style: groove;
+    border-width: 2px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+#loginrow:hover {
+    -ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1); 
+    transform: scale(1.1); 
+  }
+#loginp {
+    color: #f3671f;
+    font-size: 25px;
+}
+#boutton-inscrire {
+    background-color: #f3671f !important;
+}
+
+
+
+
+.container-fluid{
+    background-image: url('/img/back_yellowgreen.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .slogo{
+    margin-bottom: 5px;
+  }
+  .logo{
+    z-index: 99;
+    position: absolute;
+    float: left;
+    margin-top: 20px;
+    margin-left:20px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .slogan{
+    z-index: 98;
+    position: absolute;
+    margin-top: 90px;
+    margin-left:20px;
+    float: left;
+    color: green;
+    font-size: 20px;
+    font-style: italic;
+  }
+  
+  .reseau{
+    z-index: 100;
+    position: absolute;
+    width:5px;
+  }
+  
+  h1, h2, p, ul, li {
+    font-family: sans-serif;
+  }
+  
+  /* ul.menu li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  ul.menu {
+    background-color: rgb(75, 46, 9) !important;
+    padding: 0;
+    opacity: 0.8;
+  }
+  ul.menu li a {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 25px;
+    display: inline-block;
+  }
+   */
+   #navbar{
+    background-color: rgb(75, 46, 9) !important;
+   }
+  .content h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .content li {
+    margin-bottom: 10px;
+  }
+  .active:hover {
+    background-color: rgb(130, 177, 0);
+  }
+  
+  
