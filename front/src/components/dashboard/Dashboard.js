@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Atelier from './../atelier/atelier';
 import Getatelier from './../atelier/getatelier';
+import Chart from './Charts/index';
+import Sidenav from './SideBar/Nav';
 import { Link } from "react-router-dom";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
-
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import './assets/styles/base.scss';
 
 class Dashboard extends Component {
   state = {
@@ -41,7 +43,7 @@ class Dashboard extends Component {
 
     return (
       <div className="container-fluid">
-            <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="zetina" className="fixed-top">
+            <MDBNavbar color="yelow" dark expand="md" style={{ marginTop: "1px" }} id="zetina2" className="fixed-top">
               <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
                 <MDBNavbarBrand>
                     <img className=""  src="img/logo.png"  alt = "logo" height="60px"/>
@@ -49,15 +51,15 @@ class Dashboard extends Component {
                 </MDBNavbarBrand>
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
                   <MDBNavbarNav left>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <Link to="/"><span id="couleur" >Acceuil</span></Link> <span class="sr-only">(current)</span>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <Link to="/"><span id="couleur" >Actualiter</span></Link> <span class="sr-only">(current)</span>
                       </li>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <Link to="" onClick={this.onLogoutClick} className="nav-header"><span id="couleur" >Deconnexion</span></Link> <span class="sr-only">(current)</span>
                       </li>
                   </MDBNavbarNav>
@@ -65,16 +67,17 @@ class Dashboard extends Component {
             </MDBNavbar>
 
 
-            <div className="wrapper">
-              
+            <div>
+              <Sidenav/>
+              <Chart/>
             </div>
 
             <div>
          
         </div>
-    <center>
-        <Atelier/>
-    </center>
+        <center>
+            <Atelier/>
+        </center>
 
         <div className="row">
               <div className="col-md-2">

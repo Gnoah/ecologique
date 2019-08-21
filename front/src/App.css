@@ -25,13 +25,23 @@
     background-color: #f3671f !important;
 }
 
+#zetina2{
+  background-color: rgb(41, 124, 201) !important;
+}
+#zetina{
+  background-color: rgb(154, 201, 25) !important;
+}
+#couleur{
+  color: aliceblue !important;
+}
+li{
+  padding-left: 10px !important;
+}
 
-
-
-.container-fluid{
+#fond{
     background-image: url('/img/back_yellowgreen.jpeg');
-    background-attachment: fixed;
-    background-size: cover;
+    background-size: cover !important;
+    height: 800px;
   }
   .slogo{
     margin-bottom: 5px;

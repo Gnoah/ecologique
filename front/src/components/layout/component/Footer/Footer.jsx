@@ -9,7 +9,10 @@ class Footer extends Component {
             <div class="container text-center text-md-left">
               <div class="row text-center text-md-left mt-3 pb-3">
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                  <h6 class="text-uppercase mb-4 font-weight-bold">Gasy Ecocitizen</h6>
+                  <img className=""  src="img/logo.png"  alt = "logo" height="60px"/> <span  class="text-uppercase mb-4 font-weight-bold">  Gasy Ecocitizen</span>
+                  {/* <h6 class="text-uppercase mb-4 font-weight-bold">Gasy Ecocitizen</h6> */}
+                  <br/>
+                  <br/>
                   <p>Our goal is to inform people about environment destruction in Madagascar.
                       We invite you to follow the informations into this website. 
                   </p>
@@ -57,7 +60,7 @@ class Footer extends Component {
                   <p>
                     <i class="fas fa-home mr-3"></i> Antananarivo,101, MG</p>
                   <p>
-                    <i class="fas fa-envelope mr-3"></i> rlee.andri@gmail.com</p>
+                    <i class="fas fa-envelope mr-3"></i> ralahajanaharynoah@gmail.com</p>
                   <p>
                     <i class="fas fa-phone mr-3"></i> + 261 34 97 230 75</p>
                   <p>
@@ -72,7 +75,7 @@ class Footer extends Component {
         
                 <div class="col-md-7 col-lg-8">
         
-                  <p class="text-center text-md-left">© 2018 Copyright:
+                  <p class="text-center text-md-left">© 2019 Copyright:
                     <a href="#">
                       <strong> GEC</strong>
                     </a>
