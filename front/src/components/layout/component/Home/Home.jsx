@@ -10,6 +10,7 @@ class Home extends Component {
     let imgUrl1 = 'img/lemur.jpg';
     let imgUrl2 = 'img/burned-forest.jpg';
     let imgUrl3 = 'img/burn-forest.jpg';
+    
     return (
       <div>
         

@@ -29,19 +29,19 @@
   background-color: rgb(41, 124, 201) !important;
 }
 #zetina{
-  background-color: rgb(154, 201, 25) !important;
+  background-color: transparent !important;
 }
 #couleur{
   color: aliceblue !important;
 }
 li{
-  padding-left: 10px !important;
+  padding-left: 20px !important;
 }
 
 #fond{
-    background-image: url('/img/back_yellowgreen.jpeg');
+    background-image: url('/img/fond1.png');
     background-size: cover !important;
-    height: 800px;
+    height: 950px;
   }
   .slogo{
     margin-bottom: 5px;

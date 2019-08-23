@@ -7,7 +7,8 @@ import Risk from './component/Risk/Risk'
 import Resolve from './component/Resolve/Resolve'
 import Social from './component/Social/Social'
 import Footer from './component/Footer/Footer'
-import Login from '../auth/Login'
+import Login from '../auth/Login';
+//import Header from './header';
 import { MDBContainer, MDBNavbar,MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
 import 'bootstrap/dist/css/bootstrap.min.css';

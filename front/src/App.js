@@ -11,7 +11,7 @@ import Accueil from "./components/layout/Accueil";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/dashboard/SideBar/index";
 import Modifier from "./components/atelier/modifatelier";
 
 import "./App.css";
@@ -46,7 +46,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route path="/dashboard/:id" component={Modifier} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/Admin" component={Dashboard} />
             </Switch>
           </div>
         </Router>

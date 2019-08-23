@@ -5,12 +5,13 @@ import { logoutUser } from "../../actions/authActions";
 import Atelier from './../atelier/atelier';
 import Getatelier from './../atelier/getatelier';
 import Chart from './Charts/index';
-import Sidenav from './SideBar/Nav';
-import { Link } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+import Sidenav from './SideBar/index';
+import Profil from './Dash/Profil';
+//import { Link } from "react-router-dom";
+//import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import './assets/styles/base.scss';
+//import './assets/styles/base.scss';
 
 class Dashboard extends Component {
   state = {
@@ -43,7 +44,7 @@ class Dashboard extends Component {
 
     return (
       <div className="container-fluid">
-            <MDBNavbar color="yelow" dark expand="md" style={{ marginTop: "1px" }} id="zetina2" className="fixed-top">
+            {/* <MDBNavbar color="yelow" dark expand="md" style={{ marginTop: "1px" }} id="zetina2" className="fixed-top">
               <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
                 <MDBNavbarBrand>
                     <img className=""  src="img/logo.png"  alt = "logo" height="60px"/>
@@ -64,13 +65,19 @@ class Dashboard extends Component {
                       </li>
                   </MDBNavbarNav>
                 </MDBCollapse>
-            </MDBNavbar>
+            </MDBNavbar> */}
+      <div className="row">
+          <div className="col-md-2">
+            <Sidenav/>
+          </div>
+          <div className="col-md-10">
+            <Chart/>
+            <Profil/>
+          </div>
 
+      </div>
 
-            <div>
-              <Sidenav/>
-              <Chart/>
-            </div>
+            
 
             <div>
          
