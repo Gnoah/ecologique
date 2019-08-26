@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { MDBContainer} from "mdbreact";
+import { MDBContainer, MDBNavbarNav} from "mdbreact";
 import Profil from '../Dash/Profil';
 import Dashboard from '../Dashboard';
+import Actualite from '../../atelier/getatelier';
+import Table from '../Dash/Table';
+import Welcome from '../Dash/welcome'
+import Ajout from '../../atelier/atelier';
+
 
 class SideBar extends Component {
 
@@ -67,8 +72,24 @@ class SideBar extends Component {
                         </li>
                       </ul>
                       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+                      <div class="navbar-collapse-header d-md-none">
+                      <div class="row">
+                        <div class="col-6 collapse-brand">
+                          <a>
+                            <img src=""/>
+                          </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                         
-                        <div class="navbar-collapse-header d-md-none">
+                        {/* <div class="navbar-collapse-header d-md-none">
                           <div class="row">
                             <div class="col-6 collapse-close">
                               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
@@ -76,7 +97,7 @@ class SideBar extends Component {
                               </button>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                    
                     <form class="mt-4 mb-3 d-md-none">
                       <div class="input-group input-group-rounded input-group-merge">
@@ -89,31 +110,35 @@ class SideBar extends Component {
                       </div>
                     </form>
                     
-                    <ul class="navbar-nav">
+                    <MDBNavbarNav>
                       <li class="nav-item">
                         <a class="nav-link">
                           <Link to="/profil"><span class="ni ni-single-02 text-yellow">User profile</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../index.html">
-                          <i class="ni ni-tv-2 text-primary"></i>
-                          <Link to="/Dashboard"><span class="ni ni-tv-2 text-primary">Dashboard</span></Link> <span class="sr-only">(current)</span>
+                        <a class="nav-link">
+                          <Link to="/Dashboard"><span class="ni ni-tv-2 text-primary">  Dashboard</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../examples/icons.html">
-                          <i class="ni ni-planet text-blue"></i> Actualité
+                        <a class="nav-link">
+                          <Link to="/Actualite"><span class="ni ni-bullet-list-67 text-blue">  Actualité</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../examples/maps.html">
-                          <i class="ni ni-pin-3 text-orange"></i> Maps
+                        <a class="nav-link">
+                          <Link to="/Ajout"><span class="ni ni-album-2 text-blue">  Ajouter</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../examples/tables.html">
-                          <i class="ni ni-bullet-list-67 text-red"></i> Tables
+                        <a class="nav-link">
+                          <Link to="/List"><span class="ni ni-collection text-blue">  List</span></Link> <span class="sr-only">(current)</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link">
+                          <Link to="/Table"><span  class="ni ni-bullet-list-67 text-red">  Tables</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       {/* <li class="nav-item">
@@ -126,7 +151,7 @@ class SideBar extends Component {
                           <i class="ni ni-circle-08 text-pink"></i> Register
                         </a>
                       </li> */}
-                    </ul>
+                    </MDBNavbarNav>
                     
                     <hr class="my-3"/>
                    
@@ -147,6 +172,11 @@ class SideBar extends Component {
                 <div className="content">
                   <Route path="/Profil" component={Profil} />
                   <Route path="/Dashboard" component={Dashboard} />
+                  <Route path="/Actualite" component={Actualite} />
+                  <Route path="/List" component={Actualite} />
+                  <Route path="/Ajout" component={Ajout} />
+                  <Route path="/Table" component={Table} />
+                  <Route path="/Admin" component={Welcome} />
                 </div>
               </MDBContainer> 
             </div>  

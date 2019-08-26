@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBIcon,MDBCol,MDBInput,MDBCard, MDBCardBody} from "mdbreact";
+import { MDBIcon,MDBInput} from "mdbreact";
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
@@ -11,13 +11,7 @@ class Atelier extends React.Component {
     this.state = {
       titre: '',
       description:'',
-      date: '',
-      horaire: '',
-      duree: '',
-      place_dispo: '',
-      place_reserve: '',
-      photo_produit:'',
-      prix: '',
+      photo:''
     };
 
     this.onChange = this.onChange.bind(this)
@@ -33,16 +27,10 @@ class Atelier extends React.Component {
     ev.preventDefault();
 
     const data = new FormData();
-    data.append('photo_produit', this.uploadInput.files[0]);
+    data.append('photo', this.uploadInput.files[0]);
     data.append('titre',this.state.titre);
     data.append('id_user', localStorage.getItem('id_user'))
     data.append('description',this.state.description);
-    data.append('date',this.state.date);
-    data.append('horaire',this.state.horaire);
-    data.append('duree',this.state.duree);
-    data.append('place_dispo',this.state.place_dispo);
-    data.append('place_reserve',this.state.place_reserve);
-    data.append('prix',this.state.prix);
   
     fetch('http://localhost:8080/atelier', {
       method: 'POST',
@@ -58,88 +46,58 @@ class Atelier extends React.Component {
 
   render() {
     return (
-        <div className="container-fluid"> 
-         <div className="row" id="ajoutercomponent">
-          <div className="col-md-4">
-          </div>
-          <div className="col-md-4">
-         
-          </div>
-          <div className="col-md-4">
-          <MDBCol md="12">
-            <MDBCard width="50%">
-              <MDBCardBody>
-                <form  onSubmit={this.handleUploadImage}>
-                  <p className="h4 text-center py-4" id="pdash">Nouvelle ateliers </p>
+        <div>
+          <div className="row">
+              <div className="col-md-2">
+              </div>
+              <div className="col-md-10">
+              <form  onSubmit={this.handleUploadImage}>
+                  <p className="h4 text-center py-4" id="pdash">Nouvelle publication </p>
                   <div className="grey-text">
-                    <MDBInput
-                      label="Nom du l'atelier"
-                      group
-                      type="text"
-                      validate
-                      success="right" value={this.state.value}  onChange={this.onChange} name="titre"
-                      required
-                    />
-                    <MDBInput
-                      label="Déscription"
-                      group
-                      type="text"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange} name="description"
-                      required
-                    />
-                    <MDBInput
-                      label="Date"
-                      group
-                      type="date"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange} name="date"
-                      required
-                    />
-                     <MDBInput
-                      label="horaire de debut"
-                      group
-                      type="time"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange}  name="horaire"
-                      required
-                    />
-                     <MDBInput
-                      label="Duree de l'atelier"
-                      group
-                      type="number"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange}  name="duree"
-                      required
-                    />
-                     <MDBInput
-                      label="Nombre de place disponible"
-                      group
-                      type="number"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange}  name="place_dispo"
-                      required
-                    />
-                     <MDBInput
-                      label="Nombre de place reservé"
-                      group
-                      type="number"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange}  name="place_reserve"
-                      required
-                    />
-                    <MDBInput
-                      label="Prix de l'atelier (€)"
-                      group
-                      type="text"
-                      validate
-                      success="right" value={this.state.value} onChange={this.onChange}  name="prix"
-                      required
-                    />
+                    <div className="row">
+                        <div className="col-md-6">
+                          <MDBInput
+                            label="Titre"
+                            group
+                            type="text"
+                            validate
+                            success="right" value={this.state.value}  onChange={this.onChange} name="titre"
+                            required
+                          />
+                          <MDBInput
+                            label="Déscription"
+                            group
+                            type="text"
+                            validate
+                            success="right" value={this.state.value} onChange={this.onChange} name="description"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <MDBInput
+                              label="Date"
+                              group
+                              type="date"
+                              validate
+                              success="right" value={this.state.value} onChange={this.onChange} name="date"
+                              required
+                            />
+                          <MDBInput
+                            label=""
+                            group
+                            type="text"
+                            validate
+                            success="right" value={this.state.value} onChange={this.onChange}  name="prix"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                     
                     <label className="btn btn-default btn-file" id="fichier">
-                     Photo<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_produit"   required/>
+                     Photo<input ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo"   required/>
                   </label>
-                  </div>
                   <div className="text-center">
                   <div className="text-center mt-4">
                 <button className="btn btn-outline-warning" onClick={()=>{
@@ -148,7 +106,7 @@ class Atelier extends React.Component {
                       return (
                         <div className='custom-ui'>
                           <h1>Valider l'ajout</h1>
-                          <center></center><a href="/dashboard" id="okajout" className="btn btn-primary">OK</a>
+                          <center></center><a href="/Admin" id="okajout" className="btn btn-primary">OK</a>
                         </div>
                       );
                     }
@@ -160,11 +118,8 @@ class Atelier extends React.Component {
               </div>
               </div>
                 </form>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+              </div>
           </div>
-         </div> 
       </div>
     );
   }

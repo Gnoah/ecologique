@@ -1,8 +1,11 @@
 #boutton-inscrire {
-    background-color: #f3671f !important;
+    background-color: #9ad0e6 !important;
+}
+#bt{
+  border-radius: 25px !important;
 }
 #loginrow {
-    margin-top: 200px;
+    margin-top: 100px;
     transition: transform .2s; 
     border-style: groove;
     border-width: 2px;
@@ -12,13 +15,25 @@
     padding-bottom: 50px;
     border-radius: 10px;
 }
+#email{
+  color:white !important;
+}
+#sidenav-main{
+  z-index: 1 !important;
+}
+#chart1{
+  background-color: white;
+}
+#register{
+  color:white !important;
+}
 #loginrow:hover {
     -ms-transform: scale(1.1); 
     -webkit-transform: scale(1.1); 
     transform: scale(1.1); 
   }
 #loginp {
-    color: #f3671f;
+    color:  rgb(51, 224, 255);
     font-size: 25px;
 }
 #boutton-inscrire {
@@ -37,12 +52,50 @@
 li{
   padding-left: 20px !important;
 }
+#fichier {
+  background-color: #5fbad1 !important;
+  height: 40px;
+  font-weight: bold;
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  cursor: inherit;
+  display: block;
+}
 
 #fond{
     background-image: url('/img/fond1.png');
     background-size: cover !important;
     height: 950px;
   }
+#fond2{
+    background-image: url('/img/fond1.png');
+    background-size: cover !important;
+    height: auto;
+    padding-bottom: 93px;
+}
+#fond3{
+  background-image: url('/img/fond1.png');
+  background-size: cover !important;
+  height: auto;
+  padding-bottom: 331px;
+}
+#fond5{
+  background-color: #69cde6;
+}
   .slogo{
     margin-bottom: 5px;
   }
@@ -52,7 +105,7 @@ li{
     float: left;
     margin-top: 20px;
     margin-left:20px;
-    color: red;
+    color: rgb(13, 195, 228);
     font-size: 20px;
     font-weight: bold;
   }
@@ -65,6 +118,9 @@ li{
     color: green;
     font-size: 20px;
     font-style: italic;
+  }
+  #sign{
+    color: rgb(51, 224, 255);
   }
   
   .reseau{

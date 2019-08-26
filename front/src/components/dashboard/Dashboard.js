@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Atelier from './../atelier/atelier';
 import Getatelier from './../atelier/getatelier';
-import Chart from './Charts/index';
-import Sidenav from './SideBar/index';
-import Profil from './Dash/Profil';
+import Chart from '../layout/Chart';
 //import { Link } from "react-router-dom";
 //import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
 
@@ -68,33 +66,17 @@ class Dashboard extends Component {
             </MDBNavbar> */}
       <div className="row">
           <div className="col-md-2">
-            <Sidenav/>
           </div>
           <div className="col-md-10">
             <Chart/>
-            <Profil/>
           </div>
-
       </div>
-
-            
-
-            <div>
-         
-        </div>
-        <center>
+      <div className="row">
+          <div className="col-md-12">
             <Atelier/>
-        </center>
-
-        <div className="row">
-              <div className="col-md-2">
-
-              </div>
-              <div className="col-md-10">
-              
-                <Getatelier/>
-              </div>
-        </div>
+            <Getatelier/>
+          </div>
+      </div>
           
           
         <footer className="page-footer" id="footerdash">

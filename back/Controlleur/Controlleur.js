@@ -1,4 +1,4 @@
-const Produit = require('../models/model.atelier');
+const Produit = require('../models/modelPub');
 const Particulier = require('../models/model.particulier');
 const fs = require('fs');
 
@@ -22,7 +22,7 @@ exports.create = (req, res) => {
         }
         
         //images
-        let imageFile = req.files.photo_produit;
+        let imageFile = req.files.photo;
         let nomImage = id
         res.setHeader('Content-Type', 'text/plain');
 
@@ -38,13 +38,7 @@ exports.create = (req, res) => {
         id_user: req.body.id_user,
         titre: req.body.titre , 
         description: req.body.description,
-        date: req.body.date,
-        horaire: req.body.horaire,
-        duree:  req.body.duree,
-        place_dispo: req.body.place_dispo,
-        place_reserve: req.body.place_reserve,
-        prix: req.body.prix,
-        photo_produit:'' + nomImage +'.jpg'
+        photo:'' + nomImage +'.jpg'
     });
 
 
@@ -78,7 +72,7 @@ exports.findAll = (req, res) => {
 
 
 
-exports.delete_atelier =(req, res) =>{
+exports.delete_pub =(req, res) =>{
     Produit.findById(req.params._id)
     .then(atelier =>
     atelier.remove().then(() =>
@@ -103,7 +97,7 @@ exports.modifier = (req, res) => {
     }
     console.log('parametre '+req.params.profilId)
 
-    let imageFile = req.files.photo_produit;
+    let imageFile = req.files.photo;
      
         let nomImage = req.params.profilId
         res.setHeader('Content-Type', 'text/plain');
@@ -118,13 +112,7 @@ exports.modifier = (req, res) => {
     Produit.findByIdAndUpdate(req.params.profilId, {
         titre: req.body.titre , 
         description: req.body.description,
-        date: req.body.date,
-        horaire: req.body.horaire,
-        duree:  req.body.duree,
-        place_dispo: req.body.place_dispo,
-        place_reserve: req.body.place_reserve,
-        prix: req.body.prix,
-        photo_produit:'' + nomImage +'.jpg'
+        photo:'' + nomImage +'.jpg'
         
     }, {new: true})
     .then(user => {
@@ -169,12 +157,6 @@ exports.particulier = (req, res) => {
                     id2:use.id2,
                     titre: use.titre,
                     description: use.description,
-                    date: use.date,
-                    horaire: use.horaire,
-                    duree:use.duree,
-                    place_reserve: use.place_reserve+1,
-                    place_dispo: use.place_dispo-1,
-                    prix:use.prix,
                     image:use.image,
 
                 }).then(upd=>console.log(upd)
@@ -209,8 +191,8 @@ exports.getaetelier = (req,res)=>{
 exports.modifatelier = (req,res)=>{
     console.log('ity ny requete'+req.body.nom) 
 
-    let imageFile = req.files.photo_produit; 
-console.log('inona ny ato o!'+imageFile) 
+    let imageFile = req.files.photo; 
+console.log('sary!'+imageFile) 
 let nomImage = req.params._id
 res.setHeader('Content-Type', 'text/plain');
 imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
@@ -223,15 +205,9 @@ console.log(req.params._id);
 console.log('tonga eto v nw') 
 // Find and update eleve with the request body 
 Produit.findOneAndUpdate({_id: req.params._id}, { 
-    titre: req.body.titre, 
-    prix: req.body.prix, 
+    titre: req.body.titre,
     description: req.body.description, 
-    horaire: req.body.horaire,
-    date: req.body.date,
-    photo_produit: ''+nomImage + '.jpg', 
-    duree: req.body.duree, 
-    place_dispo: req.body.place_dispo, 
-    place_reserve: req.body.place_reserve,
+    photo: ''+nomImage + '.jpg'
 }, { new: true }).then(user => { 
 if (!user) { 
     return res.status(404).send(

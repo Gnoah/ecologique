@@ -30,7 +30,11 @@ export default class Tableau extends Component {
 
     liste() {
         return <div>
-            <div id="listecomponent">
+            <div className="row">
+                <div className="col-md-2">
+                </div>
+                <div className="col-md-10">
+                <div id="listecomponent">
                     <h4 id="h4tableau">Ateliers  recents</h4>
                 <table className="table table-striped table-bordered table-hover" id="table">
                     <thead>
@@ -39,11 +43,6 @@ export default class Tableau extends Component {
                             <th className="thtab">Nom</th>
                             <th className="thtab">Description</th>
                             <th className="thtab">Date</th>
-                            <th className="thtab">horaire de debut</th>
-                            <th className="thtab">Durée</th>
-                            <th className="thtab">place disponible</th>
-                            <th className="thtab">place reservé</th>
-                            <th className="thtab">Prix</th>
                             <th className="thtab">Actions</th>
                         </tr>
                     </thead>
@@ -55,11 +54,6 @@ export default class Tableau extends Component {
                                     <td>{obj.titre}</td>
                                     <td>{obj.description}</td>
                                     <td>{obj.date}</td>
-                                    <td>{obj.horaire}</td>
-                                    <td>{obj.duree} h</td>
-                                    <td>{obj.place_dispo}</td>
-                                    <td>{obj.place_reserve}</td>
-                                    <td>{obj.prix}  Ar</td>
                                     <td> 
                                     <Link className="btn btn-primary" to={'/dashboard/atelier/'+obj._id}
  
@@ -112,10 +106,12 @@ export default class Tableau extends Component {
 </td>
                                     
                                 </tr>
-                            })) : ('Aucun atelier a ajouter')
+                            })) : ('Aucun publication a ajouter')
                         }
                     </tbody>
                 </table>
+            </div>
+                </div>
             </div>
         </div>
     }

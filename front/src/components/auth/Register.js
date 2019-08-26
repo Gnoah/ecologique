@@ -22,7 +22,7 @@ class Register extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/Admin ");
     }
   }
 
@@ -56,9 +56,9 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" id="fond2">
       
-      <div className="row">
+      <div className="row" >
         <div className="col-md-4"></div>
         <div className="col-md-4" id="loginrow">
         <MDBRow>
@@ -68,11 +68,11 @@ class Register extends Component {
               <div className="grey-text">
                 <MDBInput
                   label="Votre nom"
-                  icon="envelope"
+                  icon="envelope text-white"
                   group
                   onChange={this.onChange}
                   value={this.state.name}
-                  id="name"
+                  id="register"
                   type="text"
                   className={classnames("", {
                     invalid: errors.name
@@ -81,11 +81,11 @@ class Register extends Component {
                 />
                 <MDBInput
                   label="Votre prenom"
-                  icon="envelope"
+                  icon="envelope text-white"
                   group
                   onChange={this.onChange}
                   value={this.state.lname}
-                  id="lname"
+                  id="register"
                   type="text"
                   className={classnames("", {
                     invalid: errors.lname
@@ -95,11 +95,11 @@ class Register extends Component {
 
                 <MDBInput
                   label="Votre adresse e-mail"
-                  icon="envelope"
+                  icon="envelope text-white"
                   group
                   type="email"
                   success="right"
-                  id="email"
+                  id="register"
                   onChange={this.onChange}
                   value={this.state.email}
                 
@@ -112,13 +112,13 @@ class Register extends Component {
                 
                 <MDBInput
                   label="Votre mot de passe"
-                  icon="lock"
+                  icon="lock text-white"
                   group
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password}
                  
-                  id="password"
+                  id="register"
                   className={classnames("", {
                     invalid: errors.password
                   })}
@@ -126,13 +126,13 @@ class Register extends Component {
                 />
                  <MDBInput
                   label="Confirmer votre mot de passe"
-                  icon="lock"
+                  icon="lock text-white"
                   group
                   type="password"
                   onChange={this.onChange}
                   value={this.state.password2}
                   
-                  id="password2"
+                  id="register"
                   className={classnames("", {
                     invalid: errors.password2
                   })}
@@ -141,10 +141,10 @@ class Register extends Component {
                  
               </div>
               <div className="text-center">
-                <MDBBtn type="submit" id="bouton-connecter">S'inscrire</MDBBtn>
+                <MDBBtn type="submit" gradient="purple" id="bt" >S'inscrire</MDBBtn>
               </div><br/>
             </form>
-                  <p>J'ai deja un compte ! &nbsp; <Link to="/login" id="linkseconnecter"> Se connecter</Link></p> 
+                  <p>J'ai deja un compte ! &nbsp; <Link to="/login" id="sign"> Se connecter</Link></p> 
           </MDBCol>
         </MDBRow>
         </div>

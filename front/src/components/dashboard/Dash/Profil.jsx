@@ -51,7 +51,7 @@ class Profil extends Component {
                             <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                 <div>
                                 <span class="heading">22</span>
-                                <span class="description">Friends</span>
+                                <span class="description">Post</span>
                                 </div>
                                 <div>
                                 <span class="heading">10</span>
@@ -78,7 +78,8 @@ class Profil extends Component {
                                 <i class="ni education_hat mr-2"></i>Student of Simplon Madagascar
                             </div>
                             <hr class="my-4" />
-                            <p>Gasy Ecocitizen —  a protected environment a guarantee of survival — writes, performs and records all of the environment.</p>
+                            <p>Gasy Ecocitizen — Take care of our environment —
+ a protected environment a guarantee of survival — writes, performs and records all of the environment.</p>
                             <a href="#">Show more</a>
                         </div>
                         </div>
