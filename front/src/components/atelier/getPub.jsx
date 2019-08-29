@@ -301,7 +301,7 @@ class Tableau extends Component {
                                                 <Button className="remove-btn" color="danger" id="boutton" onClick={(e)=>{
                                                 e.preventDefault()
                                                 axios.delete("http://localhost:8080/pub/"+obj._id).then(res=>{
-                                                    axios.get('http://localhost:8080/atelier'+ localStorage.getItem('id')).then(res=>{
+                                                    axios.get('http://localhost:8080/atelier').then(res=>{
                                                         console.log(res.data)
                                                         this.setState({atelier:res.data})
                                                     })

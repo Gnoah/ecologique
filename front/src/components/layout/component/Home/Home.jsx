@@ -86,7 +86,7 @@ class Home extends Component {
                             <a>
                                 <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
                                     <div className="desc">
-                                        <p>Salut</p>
+                                        <p>canne a sucre</p>
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">
@@ -116,7 +116,9 @@ class Home extends Component {
                             <a>
                                 <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl2 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
                                     <div className="desc">
-                                        <p>https://github.com/Gnoah/gasy-ecocitizen</p>
+                                        <p>Feux de forêt: la situation particulièrement alarmante à Madagascar
+
+Si le monde entier s'émeut face aux incendies sans précédent qui ravagent actuellement la forêt amazonienne, de l'autre côté du globe, la situation est tout aussi inquiétante. Les images des systèmes satellitaires de surveillance des feux de forêt indiquent que le nombre de foyers est encore plus important en Afrique subsaharienne</p>
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">
@@ -131,7 +133,7 @@ class Home extends Component {
                             <a href="#">
                                 <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl3 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
                                     <div className="desc">
-                                        <p>https://github.com/Gnoah/gasy-ecocitizen</p>
+                                        <p></p>
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">

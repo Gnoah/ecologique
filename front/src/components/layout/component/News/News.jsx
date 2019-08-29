@@ -45,7 +45,7 @@ class News extends React.Component {
             <div id="chart1">
             <MDBContainer fluid>
             
-            {this.state.profil.length>0 ?(this.state.profil.filter(us=>us.valid==true).map(menu=>{
+            {this.state.profil.length>0 ?(this.state.profil.filter(us=>us.valid==true).reverse().map(menu=>{
             return(
                 <div className="row">
                 <div className="col-md-8">
@@ -62,15 +62,14 @@ class News extends React.Component {
                                 <strong id="color">
                                     <h2 id="tex">{menu.titre}</h2>
                                 </strong>
-                                    <p>Date: { menu.date }</p>
                             </MDBCardTitle>
                             <MDBCardText>
                             <div  class="more">
                             <p className="card-text">
-                                <strong><span id="description">Description</span></strong>&nbsp;&nbsp; 
+                                <strong><span id="description"></span></strong>&nbsp;&nbsp; 
                             <div id="point1">{menu.description}</div> 
                             <a className="more-text" href="#!" id="plusmoins"> 
-                                <span className="plus">voir plus déscription</span> 
+                                <span className="plus">voir plus</span> 
                                 <span className="moins" id="moinsmoins"></span> 
                             </a> 
                             <p className="hidetext"> {menu.description} </p> 
@@ -101,6 +100,7 @@ class News extends React.Component {
                     </MDBRow>
 
                 </div>
+                <hr/>
                 <div className="col-md-4">
                         <MDBCard className="card-image" style={{
                     backgroundImage: "url('/img/impact02.jpg')"
@@ -120,7 +120,10 @@ class News extends React.Component {
                     
                 </div>
                 </MDBCard>
+                <br/>
+                <hr/>
                 </div>
+                
                 </div>
                 )})):""} 
             

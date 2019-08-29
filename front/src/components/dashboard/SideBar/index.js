@@ -47,16 +47,17 @@ renderRedirect4 = () => {
     return <Redirect to='/List' /> 
   }  
 }
+onLogoutClick = e => {
+  e.preventDefault();
+  this.props.logoutUser();
+};
 renderRedirect5 = () => {
   if (this.state.redirect5) {
     return <Redirect to='/login' /> 
   }  
 }
 
-onLogoutClick = e => {
-  e.preventDefault();
-  this.props.logoutUser();
-};
+
 
   render() {
     const { user } = this.props.auth;
@@ -201,7 +202,7 @@ onLogoutClick = e => {
                     <ul class="navbar-nav mb-md-3">
                       <li class="nav-item">
                         <a class="nav-link">
-                        <button to="" onClick={this.onLogoutClick} onClick={()=>this.setState({redirect5:true})} className="redir">{this.renderRedirect5()}<span class="ni ni-key-25 text-info">  Deconnexion</span></button> <span class="sr-only">(current)</span>
+                        <button to="" onClick={this.onLogoutClick}className="redir">{this.renderRedirect5()}<span class="ni ni-key-25 text-info">  Deconnexion</span></button> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                     </ul>
