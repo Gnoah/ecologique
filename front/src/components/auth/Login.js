@@ -102,7 +102,7 @@ class Login extends Component {
                       onChange={this.onChange}
                       value={this.state.password}
                       // error={errors.password}
-                      id="email"
+                      id="password"
                       className={classnames("", {
                         invalid: errors.password || errors.passwordincorrect
                       })}

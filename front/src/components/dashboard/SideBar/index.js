@@ -3,15 +3,24 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { MDBContainer, MDBNavbarNav} from "mdbreact";
 import Profil from '../Dash/Profil';
 import Dashboard from '../Dashboard';
-import Actualite from '../../atelier/getatelier';
+import Actualite from '../../atelier/getPub';
 import Table from '../Dash/Table';
 import Welcome from '../Dash/welcome'
-import Ajout from '../../atelier/atelier';
+import Ajout from '../../atelier/publication';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../../actions/authActions";
 
 
 class SideBar extends Component {
 
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
   render() {
+    const { user } = this.props.auth;
 
     return (
       <Router>
@@ -88,16 +97,6 @@ class SideBar extends Component {
                         </div>
                       </div>
                     </div>
-                        
-                        {/* <div class="navbar-collapse-header d-md-none">
-                          <div class="row">
-                            <div class="col-6 collapse-close">
-                              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                                <span></span>
-                              </button>
-                            </div>
-                          </div>
-                        </div> */}
                    
                     <form class="mt-4 mb-3 d-md-none">
                       <div class="input-group input-group-rounded input-group-merge">
@@ -112,6 +111,11 @@ class SideBar extends Component {
                     
                     <MDBNavbarNav>
                       <li class="nav-item">
+                          <img className=""  src="img/logo2.jpg"  alt = "logo" height="60px"/>
+                          <Link to="/Admin"><span id="good"> G E C</span></Link>
+                          
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link">
                           <Link to="/profil"><span class="ni ni-single-02 text-yellow">User profile</span></Link> <span class="sr-only">(current)</span>
                         </a>
@@ -123,7 +127,7 @@ class SideBar extends Component {
                       </li>
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="/Actualite"><span class="ni ni-bullet-list-67 text-blue">  Actualité</span></Link> <span class="sr-only">(current)</span>
+                          <Link to="/actualite"><span class="ni ni-bullet-list-67 text-blue">  Actualité</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                       <li class="nav-item">
@@ -170,13 +174,13 @@ class SideBar extends Component {
       </div>
                 
                 <div className="content">
-                  <Route path="/Profil" component={Profil} />
-                  <Route path="/Dashboard" component={Dashboard} />
-                  <Route path="/Actualite" component={Actualite} />
-                  <Route path="/List" component={Actualite} />
-                  <Route path="/Ajout" component={Ajout} />
-                  <Route path="/Table" component={Table} />
-                  <Route path="/Admin" component={Welcome} />
+                  <Route exact path="/Admin/Profil" component={Profil} />
+                  <Route exact path="/Dashboard" component={Dashboard} />
+                  <Route exact path="/actualite" component={Actualite} />
+                  <Route exact path="/List" component={Actualite} />
+                  <Route exact path="/Ajout" component={Ajout} />
+                  <Route exact path="/Table" component={Table} />
+                  <Route exact path="/Admin" exact component={Welcome} />
                 </div>
               </MDBContainer> 
             </div>  
@@ -185,4 +189,16 @@ class SideBar extends Component {
   }
 }
 
-export default SideBar;
+SideBar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(SideBar);

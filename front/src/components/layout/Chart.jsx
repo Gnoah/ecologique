@@ -52,12 +52,32 @@ class ChartsPage extends React.Component {
       ]
     }
   };
+  
+  // setGradientColor = (canvas, color) => {
+  //   const ctx = canvas.getContext('2d');
+  //   const gradient = ctx.createlinearGradient(0,0,600,550);
+  //   gradient.addColorStop(0,color);
+  //   gradient.addColorStop(0.95,"rgba(220, 220, 220, 1)")
+  // }
+
+  // getChartData = canvas => {
+  //   const data = this.state.data;
+  //   if (data.datasets) {
+  //     let colors = ["rgba(184, 185, 210, .3)","rgb(35, 26, 136)"];
+  //     data.datasets.forEach((set,i) => {
+  //       set.backgroundColor = this.setGradientColor(canvas, color[i]);
+  //       set.borderColor =  "white";
+  //       set.pointBorderWidth = 2;
+  //     });
+  //   }
+  //   return data;
+  // }
 
   render() {
     return (
       <div className="row" id="chart1">
         <MDBContainer >
-          <h3 className="mt-5">chart of deforestion in the world</h3>
+          <h3 className="mt-5">Chart of deforestion in the world</h3>
           <Line data={this.state.dataLine} options={{ responsive: true }} />
         </MDBContainer>
         <br/><br/>

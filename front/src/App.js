@@ -6,15 +6,26 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
+import Profil from './components/dashboard/Dash/Profil'
 
-import Accueil from "./components/layout/Accueil";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/SideBar/index";
-import Modifier from "./components/atelier/modifatelier";
+
+import Home from './components/layout/component/Home/Home';
+import Impact from './components/layout/component/Impact/Impact';
+import Risk from './components/layout/component/Risk/Risk';
+import News from './components/layout/component/News/News';
+import Resolve from './components/layout/component/Resolve/Resolve';
+import Deforest from './components/layout/component/Deforest/Deforest';
+import Sale from './components/layout/component/Sale/sale';
+
+import Dash from './components/dashboard/Dashboard';
+import Test from './components/dashboard/Dash/test';
 
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -36,15 +47,38 @@ if (localStorage.jwtToken) {
   }
 }
 class App extends Component {
+  state = {
+    modal5: false, 
+  }
+
+  toggleCollapse = collapseID => () =>
+  this.setState(prevState => ({
+    collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+  }));
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  }
+
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div>
-            <Route exact path="/" component={Accueil} />
+            <Route path="/" exact component={Home} />
+            <Route path="/Impact" component={Impact} />
+            <Route path="/Risk" component={Risk} />
+            <Route path="/news" component={News} />
+            <Route path="/Resolve" component={Resolve} />
+            <Route path="/Deforest" component={Deforest} />
+            <Route path="/sale" component={Sale} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route path="/dashboard/:id" component={Modifier} />
+            <Route path="/profil" component={Profil} />
+            <Route path="/Dashboard" component={Dash} />
+            <Route exact path="/test" component={Test} />
             <Switch>
               <PrivateRoute exact path="/Admin" component={Dashboard} />
             </Switch>

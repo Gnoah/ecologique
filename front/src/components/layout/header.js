@@ -1,68 +1,75 @@
-/*eslint-disable*/
-import React from "react";
+import React, { Component } from "react";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+import { MDBModal, MDBBtn,MDBModalBody, MDBModalHeader, MDBModalFooter} from "mdbreact";
+class SideNavPage extends Component {
 
-// reactstrap components
-import { Container } from "reactstrap";
-// core components
+  state = {
+    modal5: false,
+    
+  }
 
-function IndexHeader() {
-  let pageHeader = React.createRef();
-    let imgUrl = "img/header.jpg"
-  React.useEffect(() => {
-    if (window.innerWidth > 991) {
-      const updateScroll = () => {
-        let windowScrollTop = window.pageYOffset / 3;
-        pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
-      };
-      window.addEventListener("scroll", updateScroll);
-      return function cleanup() {
-        window.removeEventListener("scroll", updateScroll);
-      };
-    }
-  });
 
-  return (
-    <>
-      <div className="page-header clear-filter" filter-color="blue">
-        <div class="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}
-        ></div>
-        <Container>
-          <div className="content-center brand">
-            <img
-              alt="..."
-              className="n-logo"
-              src="img/now-logo.png"
-            ></img>
-            <h1 className="h1-seo">Now UI Kit.</h1>
-            <h3>A beautiful Bootstrap 4 UI kit. Yours free.</h3>
-          </div>
-          <h6 className="category category-absolute">
-            Designed by{" "}
-            <a href="http://invisionapp.com/?ref=creativetim" target="_blank">
-              <img
-                alt="..."
-                className="invision-logo"
-                src="img/invision-white-slim.png"
-              ></img>
-            </a>
-            . Coded by{" "}
-            <a
-              href="https://www.creative-tim.com?ref=nukr-index-header"
-              target="_blank"
-            >
-              <img
-                alt="..."
-                className="creative-tim-logo"
-                src="img/creative-tim-white-slim2.png"
-              ></img>
-            </a>
-            .
-          </h6>
-        </Container>
+  //popops login fonction 
+  toggleCollapse = collapseID => () =>
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+    }));
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  }
+
+
+  render() {
+  
+  
+    return (
+      <div>
+        <MDBNavbar color="red" dark expand="md" style={{ marginTop: "1px" }} id="navbar" className="fixed-top" scrolling >
+          <MDBNavbarBrand>
+            <img src="logo.png" alt="Logo" id="logoimage"/>
+          </MDBNavbarBrand>
+          <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
+          <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
+            <MDBNavbarNav left>
+            
+              <MDBNavItem>
+                <Link to="/Impact" className="nav-header">CUISINE</Link>
+              </MDBNavItem>
+
+            </MDBNavbarNav>
+            <MDBNavbarNav right>
+              <MDBNavItem>
+                <Link to="/login" className="nav-header" >Connexion</Link>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBNavbar>
+
+           {/*A PROPOS */}
+        <MDBModal
+          isOpen={this.state.modal5}
+          toggle={this.toggle(5)}
+          centered
+        >   
+         <MDBModalHeader toggle={this.toggle(5)} className="text-center" titleClass="w-100">A propos de E-com</MDBModalHeader>
+        
+          <MDBModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </MDBModalBody>
+          <MDBModalFooter className="justify-content-center">
+            <MDBBtn id="boutton-inscrire">Merci de visiter e-com</MDBBtn>
+          </MDBModalFooter>
+        </MDBModal>
+
       </div>
-    </>
-  );
+    );
+  }
 }
 
-export default IndexHeader;
+export default SideNavPage;

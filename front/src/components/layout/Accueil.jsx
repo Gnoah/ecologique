@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import { MDBContainer } from 'mdbreact';
-import Home from './component/Home/Home';
-import Impact from './component/Impact/Impact'
-import Risk from './component/Risk/Risk'
-import Resolve from './component/Resolve/Resolve'
-import Social from './component/Social/Social'
-import Footer from './component/Footer/Footer'
-import Login from '../auth/Login';
-import Deforest from './Chart';
-import { MDBContainer, MDBNavbar,MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { MDBContainer, MDBNavbar,MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse,MDBNavItem } from "mdbreact";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,8 +23,7 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
-          <div id="fond">
+          <div>
             <MDBContainer fluid>
                 <header >
                   <div className="slogo">
@@ -42,13 +33,16 @@ class App extends Component {
                   </div>
                   <MDBNavbar dark expand="md" style={{ marginTop: "1px" }} id="zetina">
                     <MDBNavbarBrand>
-                      <img className=""  src=""  alt = "transparent" height="60px"/>
+                      <img className=""  src=""  alt = "" height="60px"/>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
                       <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
                         <MDBNavbarNav left>
                           <li class="nav-item">
                             <Link to="/"><span id="couleur" >Home</span></Link> <span class="sr-only">(current)</span>
+                          </li>
+                          <li class="nav-item">
+                            <Link to="/news"><span id="couleur" >News</span></Link> <span class="sr-only">(current)</span>
                           </li>
                           <li class="nav-item">
                             <Link to="/Impact"><span id="couleur" >Impact</span></Link> <span class="sr-only">(current)</span>
@@ -62,6 +56,9 @@ class App extends Component {
                           <li class="nav-item">
                             <Link to="/Deforest"><span id="couleur" >Deforestation</span></Link> <span class="sr-only">(current)</span>
                           </li>
+                          <li class="nav-item">
+                            <Link to="/sale"><span id="couleur" >Sale</span></Link> <span class="sr-only">(current)</span>
+                          </li>
                         </MDBNavbarNav>
                         <MDBNavbarNav right>
                           <li class="nav-item" left>
@@ -71,26 +68,8 @@ class App extends Component {
                       </MDBCollapse>
                   </MDBNavbar>
                 </header>
-                
-                <div className="reseau">
-                  <Social /> 
-                </div>
-                <div className="content">
-                  <Route path="/" exact component={Home} />
-                  <Route path="/Home" component={Home} />
-                  <Route path="/Impact" component={Impact} />
-                  <Route path="/Risk" component={Risk} />
-                  <Route path="/Resolve" component={Resolve} />
-                  <Route path="/Deforest" component={Deforest} />
-                  <Route path="/login" component={Login} />
-                </div>
-                
-                <div id="#foot">
-                  <Footer /> 
-                </div>
               </MDBContainer> 
             </div>  
-        </Router>
     );
   }
 }

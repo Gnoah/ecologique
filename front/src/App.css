@@ -1,9 +1,28 @@
+#tex{
+  text-transform: lowercase;
+  text-align: center;
+}
+
+#tex:first-letter{
+  text-transform: uppercase;
+ }
+
+
 #boutton-inscrire {
     background-color: #9ad0e6 !important;
 }
 #bt{
   border-radius: 25px !important;
 }
+#dat{
+  color: #5fbad1;
+  float: right;
+}
+#lign1{
+  white-space: pre-wrap !important; 
+   width: 350px !important; 
+   height: auto; 
+  }
 #loginrow {
     margin-top: 100px;
     transition: transform .2s; 
@@ -16,6 +35,18 @@
     border-radius: 10px;
 }
 #email{
+  color:white !important;
+}
+#password{
+  color:white !important;
+}
+#name{
+  color:white !important;
+}
+#lname{
+  color:white !important;
+}
+#password2{
   color:white !important;
 }
 #sidenav-main{
@@ -75,11 +106,28 @@ li{
   cursor: inherit;
   display: block;
 }
-
+.sal{
+  color:rgb(92, 92, 92) !important;
+  font-size: 40px !important;
+}
+#visual{
+  border-radius: 20px;
+  border: none;
+}
+#ethan{
+  background-image: url('/img/ethan.jpg');
+  background-size: cover !important;
+  height: 800px;
+}
 #fond{
     background-image: url('/img/fond1.png');
     background-size: cover !important;
     height: 950px;
+  }
+  #fond0{
+    background-image: url('/img/fond1.png');
+    background-size: cover !important;
+    height: 800px;
   }
 #fond2{
     background-image: url('/img/fond1.png');
@@ -132,7 +180,29 @@ li{
   h1, h2, p, ul, li {
     font-family: sans-serif;
   }
-  
+  .more { 
+    position:relative; 
+  } 
+  .more-text { 
+    position:absolute; 
+    bottom:0.5em; 
+  } 
+  .moins, .hidetext, .more-text:focus .plus{ 
+    display:none; 
+  } 
+  .more-text:focus +.hidetext, .more-text:focus .moins{ 
+    display:block; 
+    cursor: pointer; 
+  } 
+  .more-text:focus { 
+    pointer-events:none; 
+  }
+  #point1{
+    height:3.5em; 
+    white-space: nowrap; 
+    overflow : hidden; 
+    text-overflow : ellipsis;
+  }
   /* ul.menu li {
     display: inline;
     list-style-type: none;

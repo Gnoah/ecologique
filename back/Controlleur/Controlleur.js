@@ -36,8 +36,10 @@ exports.create = (req, res) => {
     const produit = new Produit({    
         _id: id,
         id_user: req.body.id_user,
-        titre: req.body.titre , 
+        titre: req.body.titre ,
+        titre1: req.body.titre1,
         description: req.body.description,
+        description1: req.body.description1,
         photo:'' + nomImage +'.jpg'
     });
 
@@ -74,18 +76,18 @@ exports.findAll = (req, res) => {
 
 exports.delete_pub =(req, res) =>{
     Produit.findById(req.params._id)
-    .then(atelier =>
-    atelier.remove().then(() =>
-        res.json({
-        success: true
+      .then(atelier =>
+        atelier.remove().then(() =>
+          res.json({
+            success: true
+          })
+        )
+      )
+      .catch(err =>
+        res.status(404).json({
+          succes: false
         })
-    )
-    )
-    .catch(err =>
-    res.status(404).json({
-        succes: false
-    })
-    )
+    );
 }
 
 exports.modifier = (req, res) => {
@@ -110,8 +112,10 @@ exports.modifier = (req, res) => {
     
     
     Produit.findByIdAndUpdate(req.params.profilId, {
-        titre: req.body.titre , 
+        titre: req.body.titre ,
+        titre1: req.body.titre1,
         description: req.body.description,
+        description1: req.body.description,
         photo:'' + nomImage +'.jpg'
         
     }, {new: true})
@@ -156,7 +160,9 @@ exports.particulier = (req, res) => {
             Produit.findByIdAndUpdate(use._id, { _id:use.id,
                     id2:use.id2,
                     titre: use.titre,
+                    titre1: use.titre1,
                     description: use.description,
+                    description1: use.description1,
                     image:use.image,
 
                 }).then(upd=>console.log(upd)
@@ -206,7 +212,9 @@ console.log('tonga eto v nw')
 // Find and update eleve with the request body 
 Produit.findOneAndUpdate({_id: req.params._id}, { 
     titre: req.body.titre,
-    description: req.body.description, 
+    titre1: req.body.titre1,
+    description: req.body.description,
+    descrioption1: req.body.desription1,
     photo: ''+nomImage + '.jpg'
 }, { new: true }).then(user => { 
 if (!user) { 

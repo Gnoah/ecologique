@@ -72,7 +72,7 @@ class Register extends Component {
                   group
                   onChange={this.onChange}
                   value={this.state.name}
-                  id="register"
+                  id="name"
                   type="text"
                   className={classnames("", {
                     invalid: errors.name
@@ -85,7 +85,7 @@ class Register extends Component {
                   group
                   onChange={this.onChange}
                   value={this.state.lname}
-                  id="register"
+                  id="lname"
                   type="text"
                   className={classnames("", {
                     invalid: errors.lname
@@ -99,7 +99,7 @@ class Register extends Component {
                   group
                   type="email"
                   success="right"
-                  id="register"
+                  id="email"
                   onChange={this.onChange}
                   value={this.state.email}
                 
@@ -118,7 +118,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   value={this.state.password}
                  
-                  id="register"
+                  id="password"
                   className={classnames("", {
                     invalid: errors.password
                   })}
@@ -132,7 +132,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   value={this.state.password2}
                   
-                  id="register"
+                  id="password2"
                   className={classnames("", {
                     invalid: errors.password2
                   })}

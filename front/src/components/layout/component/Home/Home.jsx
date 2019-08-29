@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import './Home.css';
 import { Animation, MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from
 "mdbreact";
+import Footer from '../Footer/Footer';
+import Header from '../../Accueil';
+import Social from '../Social/Social'
+
+import './Home.css';
 
 class Home extends Component {
 
@@ -12,9 +16,13 @@ class Home extends Component {
     let imgUrl3 = 'img/burn-forest.jpg';
     
     return (
-      <div>
-        
-         <MDBCarousel activeItem={1} length={4} showControls={true} showIndicators={true} className="z-depth-1">
+      <div id="fond">
+        <Header/>
+        <MDBContainer fluid>
+        <div className="reseau">
+          <Social /> 
+        </div>
+        <MDBCarousel activeItem={1} length={4} showControls={true} showIndicators={true} className="z-depth-1">
             <MDBCarouselInner>
               <MDBCarouselItem itemId="1">
                 <MDBView>
@@ -70,63 +78,63 @@ class Home extends Component {
         <div>
             <br/><br/>
         </div>
-         <div class="fh5co-project">
+         <div className="fh5co-project">
             <div id="portfolio2">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="fh5co-portfolio animate-box">
-                            <a href="#">
-                                <div class="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
-                                    <div class="desc">
+                <div className="row">
+                    <div className="col-md-3">
+                        <div className="fh5co-portfolio animate-box">
+                            <a>
+                                <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
+                                    <div className="desc">
                                         <p>Salut</p>
                                     </div>
                                 </div>
-                                <div class="portfolio-text text-center">
+                                <div className="portfolio-text text-center">
                                     <h3>Gasy Ecocitizen</h3>
                                 </div> 
                             </a>
                         </div>
                      </div>
 
-                     <div class="col-md-3">
-                        <div class="fh5co-portfolio animate-box">
-                            <a href="#">
-                                <div class="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl1 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
-                                    <div class="desc">
+                     <div className="col-md-3">
+                        <div className="fh5co-portfolio animate-box">
+                            <a>
+                                <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl1 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
+                                    <div className="desc">
                                         <p>lemur</p>
                                     </div>
                                 </div>
-                                <div class="portfolio-text text-center">
+                                <div className="portfolio-text text-center">
                                     <h3>Gasy Ecocitizen</h3>
                                 </div> 
                             </a>
                         </div>
                      </div>
 
-                     <div class="col-md-3">
-                        <div class="fh5co-portfolio animate-box">
-                            <a href="#">
-                                <div class="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl2 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
-                                    <div class="desc">
+                     <div className="col-md-3">
+                        <div className="fh5co-portfolio animate-box">
+                            <a>
+                                <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl2 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
+                                    <div className="desc">
                                         <p>https://github.com/Gnoah/gasy-ecocitizen</p>
                                     </div>
                                 </div>
-                                <div class="portfolio-text text-center">
+                                <div className="portfolio-text text-center">
                                     <h3>Gasy Ecocitizen</h3>
                                 </div> 
                             </a>
                         </div>
                      </div>
 
-                     <div class="col-md-3">
-                        <div class="fh5co-portfolio animate-box">
+                     <div className="col-md-3">
+                        <div className="fh5co-portfolio animate-box">
                             <a href="#">
-                                <div class="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl3 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
-                                    <div class="desc">
+                                <div className="portfolio-entry" style={{backgroundImage: 'url(' + imgUrl3 + ')', backgroundSize: 'cover', backgroundPosition: 'center center',backgroundRepeat: 'no-repeat',}}>
+                                    <div className="desc">
                                         <p>https://github.com/Gnoah/gasy-ecocitizen</p>
                                     </div>
                                 </div>
-                                <div class="portfolio-text text-center">
+                                <div className="portfolio-text text-center">
                                     <h3>Gasy Ecocitizen</h3>
                                 </div> 
                             </a>
@@ -137,8 +145,11 @@ class Home extends Component {
 
 
         </div>
-
+        </MDBContainer>
         
+        <div id="#foot">
+          <Footer /> 
+        </div>
       </div>
     );
   }

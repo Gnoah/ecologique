@@ -1,12 +1,21 @@
 import React, { Component } from "react";
-import Card from './Card-impact'
-import './Impact.css'
+import { MDBContainer } from "mdbreact";
+import Card from './Card-impact';
+import Header from '../../Accueil';
+import Footer from '../Footer/Footer';
+import './Impact.css';
 
 class Impact extends Component {
   render() {
     return (
-      <div>
-        <Card />
+      <div id="fond0">
+         <Header />
+            <MDBContainer fluid>
+              <Card />
+            </MDBContainer>
+        <div id="#foot">
+          <Footer /> 
+        </div>
       </div>
     );
   }

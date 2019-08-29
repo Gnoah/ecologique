@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import Atelier from './../atelier/atelier';
-import Getatelier from './../atelier/getatelier';
+// import PropTypes from "prop-types";
+// import { connect } from "react-redux";
+// import { logoutUser } from "../../actions/authActions";
+import Atelier from '../atelier/publication';
+import Getatelier from '../atelier/getPub';
 import Chart from '../layout/Chart';
 //import { Link } from "react-router-dom";
 //import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse } from "mdbreact";
@@ -30,15 +30,15 @@ class Dashboard extends Component {
       [modalNumber]: !this.state[modalNumber]
     });
   }
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
+  // onLogoutClick = e => {
+  //   e.preventDefault();
+  //   this.props.logoutUser();
+  // };
 
 
   render() {
   
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
 
     return (
       <div className="container-fluid">
@@ -89,16 +89,17 @@ class Dashboard extends Component {
   }
 }
 
-Dashboard.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};
+export default Dashboard;
+// Dashboard.propTypes = {
+//   logoutUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired
+// };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+// const mapStateToProps = state => ({
+//   auth: state.auth
+// });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+// export default connect(
+//   mapStateToProps,
+//   { logoutUser }
+// )(Dashboard);
