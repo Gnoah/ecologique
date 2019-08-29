@@ -1,13 +1,22 @@
 import React, { Component } from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import { MDBNavbarNav} from "mdbreact";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../../actions/authActions";
 
 class Profil extends Component {
   constructor(props){
     super(props);
     this.state = {
         photo: '',
+        redirect:false,
+        redirect1:false,
+        redirect2:false,
+        redirect3:false,
+        redirect4:false,
+        redirect5:false
     }
     this.onChange = this.onChange.bind(this)
     this.handleEdit = this.handleEdit.bind(this);
@@ -44,9 +53,44 @@ console.log(this.props.id);
     });
   });
 }
+renderRedirect = () => {
+  if (this.state.redirect) {
+    return <Redirect to='/profil' /> 
+  }  
+}
+renderRedirect1 = () => {
+  if (this.state.redirect1) {
+    return <Redirect to='/Dashboard' /> 
+  }  
+}
+renderRedirect2 = () => {
+  if (this.state.redirect2) {
+    return <Redirect to='/actualite' /> 
+  }  
+}
+renderRedirect3 = () => {
+  if (this.state.redirect3) {
+    return <Redirect to='/Ajout' /> 
+  }  
+}
+renderRedirect4 = () => {
+  if (this.state.redirect4) {
+    return <Redirect to='/List' /> 
+  }  
+}
+renderRedirect5 = () => {
+  if (this.state.redirect5) {
+    return <Redirect to='/login' /> 
+  }  
+}
+
+onLogoutClick = e => {
+  e.preventDefault();
+  this.props.logoutUser();
+};
 
   render() {
-
+    const { user } = this.props.auth;
     return (
         <div className="row">
             <div className="col-md-2">
@@ -139,28 +183,38 @@ console.log(this.props.id);
                       </li>
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="profil"><span class="ni ni-single-02 text-yellow">User profile</span></Link> <span class="sr-only">(current)</span>
+                          <button onClick={()=>this.setState({redirect:true})} className="redir">{this.renderRedirect()}
+                          <span class="ni ni-single-02 text-yellow">User profile</span> <span class="sr-only">(current)</span>
+                          </button>
                         </a>
                       </li>
                       
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="/Dashboard"><span class="ni ni-tv-2 text-primary">  Dashboard</span></Link> <span class="sr-only">(current)</span>
+                          <button onClick={()=>this.setState({redirect1:true})} className="redir">{this.renderRedirect1()}
+                            <span class="ni ni-tv-2 text-primary">  Dashboard</span><span class="sr-only">(current)</span>
+                          </button>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="/actualite"><span class="ni ni-bullet-list-67 text-blue">  Actualité</span></Link> <span class="sr-only">(current)</span>
+                          <button onClick={()=>this.setState({redirect2:true})} className="redir">{this.renderRedirect2()}
+                            <Link to="/actualite"><span class="ni ni-bullet-list-67 text-blue">  Actualité</span></Link> <span class="sr-only">(current)</span>
+                          </button>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="/Ajout"><span class="ni ni-album-2 text-blue">  Ajouter</span></Link> <span class="sr-only">(current)</span>
+                          <button onClick={()=>this.setState({redirect3:true})} className="redir">{this.renderRedirect3()}
+                            <Link to="/Ajout"><span class="ni ni-album-2 text-blue">  Ajouter</span></Link> <span class="sr-only">(current)</span>
+                          </button>
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="/List"><span class="ni ni-collection text-blue">  List</span></Link> <span class="sr-only">(current)</span>
+                          <button onClick={()=>this.setState({redirect4:true})} className="redir">{this.renderRedirect4()}
+                            <Link to="/List"><span class="ni ni-collection text-blue">  List</span></Link> <span class="sr-only">(current)</span>
+                          </button>
                         </a>
                       </li>
                       <li class="nav-item">
@@ -178,7 +232,7 @@ console.log(this.props.id);
                     <ul class="navbar-nav mb-md-3">
                       <li class="nav-item">
                         <a class="nav-link">
-                          <Link to="" onClick={this.onLogoutClick} className="nav-header"><span class="ni ni-key-25 text-info">  Deconnexion</span></Link> <span class="sr-only">(current)</span>
+                        <button to="" onClick={this.onLogoutClick} onClick={()=>this.setState({redirect5:true})} className="redir">{this.renderRedirect5()}<span class="ni ni-key-25 text-info">  Deconnexion</span></button> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                     </ul>
@@ -187,6 +241,7 @@ console.log(this.props.id);
               </nav>
 
             </div>
+
             <div className="col-md-10">
             <div class="main-content">
                 {/* <!-- Page content --> */}
@@ -278,4 +333,16 @@ console.log(this.props.id);
   }
 }
 
-export default Profil;
+Profil.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Profil);

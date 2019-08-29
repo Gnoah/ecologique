@@ -90,7 +90,7 @@ class Home extends Component {
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">
-                                    <h3>Gasy Ecocitizen</h3>
+                                    <h3>Production Ethanol</h3>
                                 </div> 
                             </a>
                         </div>
@@ -105,7 +105,7 @@ class Home extends Component {
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">
-                                    <h3>Gasy Ecocitizen</h3>
+                                    <h3>Lemur</h3>
                                 </div> 
                             </a>
                         </div>
@@ -120,7 +120,7 @@ class Home extends Component {
                                     </div>
                                 </div>
                                 <div className="portfolio-text text-center">
-                                    <h3>Gasy Ecocitizen</h3>
+                                    <h3>Deforestation</h3>
                                 </div> 
                             </a>
                         </div>

@@ -6,7 +6,10 @@
 #tex:first-letter{
   text-transform: uppercase;
  }
-
+.redir{
+  background-color: transparent !important;
+  border: none;
+}
 
 #boutton-inscrire {
     background-color: #9ad0e6 !important;

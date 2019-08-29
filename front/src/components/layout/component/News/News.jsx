@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon  } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBIcon  } from "mdbreact";
 import Header from '../../Accueil';
 import Footer from '../Footer/Footer';
 

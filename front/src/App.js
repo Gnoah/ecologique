@@ -22,7 +22,9 @@ import Deforest from './components/layout/component/Deforest/Deforest';
 import Sale from './components/layout/component/Sale/sale';
 
 import Dash from './components/dashboard/Dashboard';
-import Test from './components/dashboard/Dash/test';
+import Test from './components/dashboard/Dash/Actu';
+import List from './components/atelier/getPub';
+import Ajout from './components/atelier/publication';
 
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -78,7 +80,9 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route path="/profil" component={Profil} />
             <Route path="/Dashboard" component={Dash} />
-            <Route exact path="/test" component={Test} />
+            <Route exact path="/actualite" component={Test} />
+            <Route exact path="/List" component={List} />
+            <Route exact path="/Ajout" component={Ajout} />
             <Switch>
               <PrivateRoute exact path="/Admin" component={Dashboard} />
             </Switch>

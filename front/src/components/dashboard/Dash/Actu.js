@@ -1,68 +1,76 @@
-import React, { Component } from "react";
-import { BrowserRouter as Link, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
 import axios from 'axios';
-import Welcome from '../Dash/welcome';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBIcon  } from "mdbreact";
+import { BrowserRouter as Link,Redirect } from "react-router-dom";
 import { MDBNavbarNav} from "mdbreact";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { logoutUser } from "../../../actions/authActions";
 
-class Profil extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        redirect:false,
-        redirect1:false,
-        redirect2:false,
-        redirect3:false,
-        redirect4:false,
-        redirect5:false
+
+export default class Tableau extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { 
+            profil: [],
+            nom:"",
+            prenom:"",
+            email:"",
+            telephone:"",
+            redirect:false,
+            redirect1:false,
+            redirect2:false,
+            redirect3:false,
+            redirect4:false 
+        };
+        this.handleChange = this.handleChange.bind(this);
     }
-}
+    componentDidMount() {    
+      axios.get('http://localhost:8080/atelier').then(res => {
+         
+          this.setState({ profil: res.data })
+          console.log("state" +this.state.profil)
+  
+      })
+      .catch(function (error) {
+        console.log(error);
+    })
+  }
+  
+  handleChange(e){
+      this.setState({
+          [e.target.name]: e.target.value
+      })
+  }
 
+    renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/profil' /> 
+        }  
+      }
+      renderRedirect1 = () => {
+        if (this.state.redirect1) {
+          return <Redirect to='/Dashboard' /> 
+        }  
+      }
+      renderRedirect2 = () => {
+        if (this.state.redirect2) {
+          return <Redirect to='/actualite' /> 
+        }  
+      }
+      renderRedirect3 = () => {
+        if (this.state.redirect3) {
+          return <Redirect to='/Ajout' /> 
+        }  
+      }
+      renderRedirect4 = () => {
+        if (this.state.redirect4) {
+          return <Redirect to='/List' /> 
+        }  
+      }
 
-
-renderRedirect = () => {
-  if (this.state.redirect) {
-    return <Redirect to='/profil' /> 
-  }  
-}
-renderRedirect1 = () => {
-  if (this.state.redirect1) {
-    return <Redirect to='/Dashboard' /> 
-  }  
-}
-renderRedirect2 = () => {
-  if (this.state.redirect2) {
-    return <Redirect to='/actualite' /> 
-  }  
-}
-renderRedirect3 = () => {
-  if (this.state.redirect3) {
-    return <Redirect to='/Ajout' /> 
-  }  
-}
-renderRedirect4 = () => {
-  if (this.state.redirect4) {
-    return <Redirect to='/List' /> 
-  }  
-}
-renderRedirect5 = () => {
-  if (this.state.redirect5) {
-    return <Redirect to='/login' /> 
-  }  
-}
-
-onLogoutClick = e => {
-  e.preventDefault();
-  this.props.logoutUser();
-};
-
-  render() {
-    const { user } = this.props.auth;
-    return (
-        <div className="row">
-            <div className="col-md-2">
+    liste() {
+        return <div>
+            <div className="row">
+                <div className="col-md-2">
                   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
                     <div class="container-fluid">+
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
@@ -201,37 +209,106 @@ onLogoutClick = e => {
                     <ul class="navbar-nav mb-md-3">
                       <li class="nav-item">
                         <a class="nav-link">
-                        <button to="" onClick={this.onLogoutClick} onClick={()=>this.setState({redirect5:true})} className="redir">{this.renderRedirect5()}<span class="ni ni-key-25 text-info">  Deconnexion</span></button> <span class="sr-only">(current)</span>
+                          <Link to="" onClick={this.onLogoutClick} className="nav-header"><span class="ni ni-key-25 text-info">  Deconnexion</span></Link> <span class="sr-only">(current)</span>
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </nav>
+                </div>
+                <div className="col-md-10">
+                <MDBContainer fluid>
+            
+            {this.state.profil.length>0 ?(this.state.profil.filter(us=>us.valid==true).map(menu=>{
+            return(
+                <div className="row">
+                <div className="col-md-8">
+                <MDBRow>
+                <MDBCol md="12">
+                        <MDBCard wide ecommerce>
+                            <MDBCardBody cascade  placement="top"
+                                    tag="a"
+                                    component="i"
+                                    componentClass="fa fa-eye grey-text ml-3"
+                                    tooltipContent="Quick look"
+                                    className="text-center">
+                            <MDBCardTitle>
+                                <strong id="color">
+                                    <h2 id="tex">{menu.titre}</h2>
+                                </strong>
+                                    <p>Date: { menu.date }</p>
+                            </MDBCardTitle>
+                            <MDBCardText>
+                            <div  class="more">
+                            <p className="card-text">
+                                <strong><span id="description">Description</span></strong>&nbsp;&nbsp; 
+                            <div id="point1">{menu.description}</div> 
+                            <a className="more-text" href="#!" id="plusmoins"> 
+                                <span className="plus">voir plus déscription</span> 
+                                <span className="moins" id="moinsmoins"></span> 
+                            </a> 
+                            <p className="hidetext"> {menu.description} </p> 
+                            </p> 
+                            </div>
+                                {/* <h6>{menu.description}</h6> */}
+                            </MDBCardText>
+                            {/* <MDBCardFooter className="px-1">
+                                <span className="float-left font-weight-bold">
+                                <strong></strong>
+                                </span>
+                                <span className="float-right">
+                                </span>
+                            <div className="">
+                            </div>
+                            </MDBCardFooter> */}
+                                
+                            </MDBCardBody>
+                        </MDBCard>
+                        <MDBCardImage
+                            cascade
+                            src={'http://localhost:8080/atelier/'+ menu.photo}
+                            top
+                            alt="sample photo"
+                            />
+                                
+                    </MDBCol>
+                    </MDBRow>
 
-            </div>
-
-            <div className="col-md-10">
-              <Welcome/>
+                </div>
+                <div className="col-md-4">
+                        <MDBCard className="card-image" style={{
+                    backgroundImage: "url('/img/impact02.jpg')"
+                    }}>
+                <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div>
+                    <h5 className="yellow-text">
+                        <MDBIcon icon="" />
+                    </h5>
+                    <MDBCardTitle tag="h3" className="pt-2">
+                        <strong>{menu.titre1}</strong>
+                    </MDBCardTitle>
+                    <p>{menu.description1}
+                    </p>
+                    <p><span id="dat">{menu.createdAt}</span></p>
+                    </div>
+                    
+                </div>
+                </MDBCard>
+                </div>
+                </div>
+                )})):""} 
+            
+            </MDBContainer>
+                </div>
             </div>
         </div>
-
-          
-          
-    );
-  }
+    }
+    render() {
+        return (
+            <div>
+                {this.liste()}
+            </div>
+        );
+    }
 }
-
-Profil.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Profil);
